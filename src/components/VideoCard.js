@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideoCard = ({info}) => {
 
-    console.log(info);
+    
     
     if (!info) {
         return null; // or handle the case where info is undefined
@@ -22,7 +22,8 @@ const VideoCard = ({info}) => {
         <ul>
             <li className='font-bold py-2' >{title}</li>
             <li>{channelTitle}</li>
-            {statistics && <li>{statistics.viewCount} views</li>}        </ul>
+            {statistics && <li>{statistics.viewCount} views</li>}
+        </ul>
     </div>
   )
 }

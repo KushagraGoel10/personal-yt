@@ -13,7 +13,7 @@ const Sidebar = () => {
     <div className='p-5 shadow-lg w-48'>
 
          <ul className=''>
-            <li> <Link to ="/">Home</Link> </li>
+            <li> <Link to  ="/" className=' flex items-center ml-1  '><img className=' h-4 'src='https://cdn-icons-png.flaticon.com/128/1946/1946436.png' style={{ marginRight: '9px' }}/>  Home</Link> </li>
             <li>Shorts</li>
             <li>Videos</li>
             <li>Live</li>
@@ -37,4 +37,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Sidebar;
