@@ -13,7 +13,7 @@ const ButtonList = () => {
         <Button name="Rocket League"/>
         <Button name="Party Animals"/>
         <Button name="Apex Legends"/>
-        <Button name="Cricket"/>
+    
     </div>
   )
 }

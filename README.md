@@ -17,3 +17,6 @@ if diff between 2 key strokes is <200ms = Decline API Calls
 
 Flipkart debouncing is less than google, because google has to provide immediate suggestions with much more greater user experience. 
 Google, Youtube- will give you the results for every key strokes.
+
+Youtube debouncing is very less. 
+Flipkart is around or greater than 200ms
