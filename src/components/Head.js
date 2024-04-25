@@ -25,6 +25,7 @@ const Head = () => {
         🔍
         </button>
         </div>
+        
 
         < div className='col-span-1'> 
 
