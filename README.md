@@ -1,3 +1,6 @@
+Notes/Concepts I used in making the clone. 
+
+This concept was used while i was making the search bar suggestions part (To optimize it more to make Less API calls {MY Search Suggestion is better than flipkart's XD })
 Debouncing- When you are doing something very fast, it just skips some of the events. 
 For eg: 
 - Typing slow in search bar = 200ms

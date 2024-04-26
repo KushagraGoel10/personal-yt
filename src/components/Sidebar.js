@@ -15,7 +15,7 @@ const Sidebar = () => {
           {" "}
           <Link
             to="/"
-            className=" flex items-center ml-1 hover:bg-blue-200 rounded-lg w-50 "
+            className=" flex items-center ml-1 h-10 hover:bg-blue-200 rounded-lg w-50 "
           >
             <img
               className=" h-4 ml-0 "
@@ -25,9 +25,9 @@ const Sidebar = () => {
             Home
           </Link>{" "}
         </li>
-        <li>Shorts</li>
-        <li>Videos</li>
-        <li>Live</li>
+        <li className=" flex items-center ml-1 h-10 hover:bg-blue-200 rounded-lg w-50 ">Shorts</li>
+        <li className=" flex items-center ml-1 h-10 hover:bg-blue-200 rounded-lg w-50 " >Videos</li>
+        <li className=" flex items-center ml-1 h-10 hover:bg-blue-200 rounded-lg w-50 " >Live</li>
       </ul>
       <h1 className="font-bold pt-5">Subscriptions</h1>
       <ul>

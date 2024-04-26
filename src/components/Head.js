@@ -13,7 +13,7 @@ const Head = () => {
     //but if the diff between 2 api calls < 200ms
     //Decline the API call.
 
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => getSearchSuggestions(searchQuery), 200);
 
     return () => {
       clearTimeout(timer);
