@@ -63,7 +63,7 @@ const Head = () => {
             🔍
           </button>
         </div>
-        <div className="  fixed bg-white py-2 px-2  w-[34rem] shadow-lg rounded-lg border border-gray-200">
+        <div className="  fixed bg-white  w-[60rem] shadow-lg rounded-lg border border-gray-200">
           <ul>
             {" "}
             {suggestions.map((s) => (
