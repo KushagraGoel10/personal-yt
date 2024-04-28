@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
+import VideoContainer from './VideoContainer'
+
 import { useSearchParams } from "react-router-dom";
 
 const WatchPage = () => {
@@ -24,7 +26,8 @@ const WatchPage = () => {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
-        
+                <VideoContainer />
+
     </div>
   );
 };
