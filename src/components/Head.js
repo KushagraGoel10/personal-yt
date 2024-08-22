@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback   } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/contants";
 
+
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
   const [suggestions, setSuggestions] = useState([]);
+ 
+  const getSearchSuggestions = useCallback(async () => {
+    if (!searchQuery) return;
+    console.log("API call - " + searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const json = await data.json();
+    setSuggestions(json[1]);
+  }, [searchQuery]);
 
   useEffect(() => {
-    //make API call after every key press
-    //but if the diff between 2 api calls < 200ms
-    //Decline the API call.
-
-    const timer = setTimeout(() => getSearchSuggestions(searchQuery), 200);
-
+    const timer = setTimeout(() => getSearchSuggestions(), 200);
     return () => {
       clearTimeout(timer);
     };
-  }, [searchQuery]);
+  }, [searchQuery, getSearchSuggestions]);
 
-  const getSearchSuggestions = async () => {
-    console.log("API call - " + searchQuery);
-
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    //console.log(json[1]);
-    setSuggestions(json[1]);
+  const handleSuggestionClick = (suggestion) => {
+    // Manually navigate to the search results page
+    window.location.href = `/search/${encodeURIComponent(suggestion)}`;
   };
+  
+  
+
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -54,20 +56,23 @@ const Head = () => {
       <div className="col-span-10 px-10">
         <div>
           <input
-            className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full  "
+            className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="border border-gray-400 px-5 py-2  rounded-r-full bg-gray-200">
+          <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-200">
             🔍
           </button>
         </div>
-        <div className="  fixed bg-white  w-[60rem] shadow-lg rounded-lg border border-gray-200">
+        <div className="fixed bg-white w-[60rem] shadow-lg rounded-lg border border-gray-200">
           <ul>
-            {" "}
             {suggestions.map((s) => (
-              <li key={s} className=" py-2 px-3 shadow-sm hover:bg-gray-100">
+              <li
+                key={s}
+                className="py-2 px-3 shadow-sm hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleSuggestionClick(s)}
+              >
                 🔍 {s}
               </li>
             ))}
