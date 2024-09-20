@@ -2,12 +2,11 @@ import "./App.css";
 import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Head from "./components/Head.js";
-import React from "react";
 import Body from "./components/Body.js";
 import store from "./utils/store.js";
 import MainContainer from "./components/MainContainer.js";
 import WatchPage from "./components/WatchPage.js";
-import SearchResults from "./components/SearchResults.js"; // Import the SearchResults component
+import SearchResults from "./components/SearchResults.js";
 
 const appRouter = createBrowserRouter([
   {
@@ -23,7 +22,7 @@ const appRouter = createBrowserRouter([
         element: <WatchPage />,
       },
       {
-        path: "search/:query", // Add the search route
+        path: "search/:query",
         element: <SearchResults />,
       },
     ],

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback   } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { YOUTUBE_SEARCH_API } from "../utils/contants";
+// import { YOUTUBE_SEARCH_API } from "../utils/contants";
 
 
 const Head = () => {
@@ -11,10 +11,15 @@ const Head = () => {
   const getSearchSuggestions = useCallback(async () => {
     if (!searchQuery) return;
     console.log("API call - " + searchQuery);
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    setSuggestions(json[1]);
+    try {
+      const data = await fetch(`https://ytbackend-c0cz.onrender.com/api/search?q=${searchQuery}`);
+      const json = await data.json();
+      setSuggestions(json[1]);
+    } catch (error) {
+      console.error("Error fetching search suggestions:", error);
+    }
   }, [searchQuery]);
+  
 
   useEffect(() => {
     const timer = setTimeout(() => getSearchSuggestions(), 200);
